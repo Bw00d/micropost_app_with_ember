@@ -71,6 +71,11 @@ App.PostController = Ember.ObjectController.extend({
     },
     doneEditing: function() {
       this.set('isEditing', false);
+    },
+    deletePost: function() {
+      if (confirm('delete it?')) {
+        this.get('model').destroyRecord();
+      }
     }
   }
 });

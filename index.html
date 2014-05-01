@@ -68,7 +68,8 @@
       {{partial 'post/edit'}}
       <button {{action 'doneEditing'}}>Done</button>
     {{else}}
-      <button {{action 'edit'}}>Edit</button>
+      <button {{action 'edit'}} class="btn default btn-xs">Edit</button>
+       <button {{action 'deletePost'}} class="btn btn-danger btn-xs">Delete</button>
     {{/if}}
 
     <h1>{{title}}</h1>

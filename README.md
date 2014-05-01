@@ -6,7 +6,7 @@ This application is based [this](https://www.youtube.com/watch?v=1QHrlFlaXdI) tu
 
 ###Status
 * Updated tutorial to use current Ember starterkit
+* Create new post functionality
 
 ###Todo
-* Add 'create' posts
 * Add 'delete' posts
