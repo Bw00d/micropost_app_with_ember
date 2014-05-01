@@ -37,17 +37,18 @@
       <div class="row-fluid">
         <div class="span3">
           <table class="table">
+          {{#link-to 'newPost' }}Add Post{{/link-to}}
             <thead>
               <tr><th>Recent Posts</th></tr>
             </thead>
-
-              {{#each model}}
-                <tr><td>
-                  {{#link-to 'post' this}}
-                    {{title}}{{/link-to}} <small class="muted">by {{author.name}}</small>
-                </td></tr>
-              {{/each}}
-
+              <tbody>
+                {{#each model}}
+                  <tr><td>
+                    {{#link-to 'post' this}}
+                      {{title}}{{/link-to}} <small class="muted"></small>
+                  </td></tr>
+                {{/each}}
+              <tbody>
           </table>
         </div>
         <div class="span9">
@@ -55,6 +56,11 @@
         </div>
       </div>
     </div>
+  </script>
+
+  <script type="text/x-handlebars" id="newPost">
+    {{partial 'post/edit'}}
+    <button {{action 'createPost'}}>Create</button>
   </script>
 
   <script type="text/x-handlebars" id="post">
@@ -66,7 +72,7 @@
     {{/if}}
 
     <h1>{{title}}</h1>
-    <h2>by {{author.name}} <small class="muted">{{format-date date}}</small></h2>
+    <h2><small class="muted">{{format-date date}}</small></h2>
     <hr>
     <div class="intro">
       {{format-markdown excerpt}}
@@ -77,9 +83,9 @@
   </script>
 
   <script type="text/x-handlebars" id="post/_edit">
-    <p>{{input type="text" value=title}}</p>
-    <p>{{input type="text" value=excerpt}}</p>
-    <p>{{textarea value=body}}</p>
+    <p>{{input type="text" value=title placeholder='Title'}}</p>
+    <p>{{input type="text" value=excerpt placeholder='Excerpt'}}</p>
+    <p>{{textarea value=body placeholder='Compose...'}}</p>
   </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
